@@ -41,3 +41,7 @@ help:  ## show this help
 	@grep -E '^[a-z][a-zA-Z_-]*:.*?## ' $(MAKEFILE_LIST) \
 	 | sed 's/:.*## /\t/' | column -t -s "$$(printf '\t')"
 
+
+count: build ## report source files and built words
+	@ls -1 $(SRC_DIR)/*.txt | wc -l
+	@wc -w $(OUTPUTS) | tail -1
